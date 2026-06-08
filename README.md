@@ -97,7 +97,7 @@ journalctl -u ssh-server -f      # live logs
 From anywhere:
 
 ```sh
-ssh denizlg24.com          # or ssh <pi-ip>
+ssh me.denizlg24.com          # or ssh <pi-ip>
 ```
 
 You should see the card. Admin access is now `ssh -p 2222 denizlg24@<pi-ip>`.
