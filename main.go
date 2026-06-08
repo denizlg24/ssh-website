@@ -40,7 +40,8 @@ const portrait = `........................................
 
 func main() {
 	if os.Getenv("PREVIEW") == "1" {
-		r := lipgloss.NewRenderer(os.Stdout, termenv.WithProfile(termenv.TrueColor))
+		r := lipgloss.NewRenderer(os.Stdout)
+		r.SetColorProfile(termenv.TrueColor)
 		fmt.Print(render(r, 80))
 		return
 	}
@@ -96,7 +97,8 @@ func displayMiddleware() wish.Middleware {
 				width = pty.Window.Width
 			}
 
-			renderer := lipgloss.NewRenderer(sess, termenv.WithProfile(termenv.TrueColor))
+			renderer := lipgloss.NewRenderer(sess)
+			renderer.SetColorProfile(termenv.TrueColor)
 			output := render(renderer, width)
 			fmt.Fprint(sess, output)
 			next(sess)
